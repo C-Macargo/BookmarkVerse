@@ -1,0 +1,66 @@
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+import RegisterForm from "../components/auth-components/Register-form";
+
+function Register() {
+	const [email, setEmail] = useState<string>("");
+	const [password, setPassword] = useState<string>("");
+	const [confirmPassword, setConfirmPassword] = useState<string>("");
+	const [name, setName] = useState<string>("");
+	const [pictureUrl, setPictureUrl] = useState<string>("");
+
+	async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+		event.preventDefault();
+		console.log("register form submitted");
+		const data = {
+			email: email,
+			password: password,
+			confirmPassword: confirmPassword,
+			name: name,
+			picture_url: pictureUrl,
+		};
+		try {
+			const response = await axios.post(
+				"http://localhost:5000/auth/register",
+				data
+			);
+			console.log(response.data);
+		} catch (error: any) {
+			if (error.response) {
+				console.log(error.response.status);
+				alert(error.response.data.message);
+			}
+		}
+	}
+
+	return (
+		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-700">
+			<div className="max-w-md w-full p-6 bg-white rounded-lg shadow">
+				<h2 className="text-2xl font-semibold mb-6">Register</h2>
+				<RegisterForm
+					email={email}
+					setEmail={setEmail}
+					password={password}
+					setPassword={setPassword}
+					confirmPassword={confirmPassword}
+					setConfirmPassword={setConfirmPassword}
+					name={name}
+					setName={setName}
+					pictureUrl={pictureUrl}
+					setPictureUrl={setPictureUrl}
+					onSubmit={handleSubmit}
+				/>
+				<div className="flex justify-center m-2 hover: color-gray-600">
+					<span className="hover:text-purple-600 transition-colors duration-500">
+						<Link to="/login">
+							Already have an account? Login now!
+						</Link>
+					</span>
+				</div>
+			</div>
+		</div>
+	);
+}
+
+export default Register;

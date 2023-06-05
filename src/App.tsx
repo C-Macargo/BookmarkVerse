@@ -1,12 +1,11 @@
-function App() {
+import AppRoutes from "./routes/Routes";
 
+function App() {
   return (
-    <>
-      <div>
-        First Commit
-      </div>
-    </>
-  )
+    <div className="App">
+      <AppRoutes />
+    </div>
+  );
 }
 
-export default App
+export default App;
