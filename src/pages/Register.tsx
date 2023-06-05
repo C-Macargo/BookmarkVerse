@@ -12,7 +12,6 @@ function Register() {
 
 	async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
-		console.log("register form submitted");
 		const data = {
 			email: email,
 			password: password,
@@ -51,7 +50,7 @@ function Register() {
 					setPictureUrl={setPictureUrl}
 					onSubmit={handleSubmit}
 				/>
-				<div className="flex justify-center m-2 hover: color-gray-600">
+				<div className=" flex justify-center m-2 hover:color-gray-600">
 					<span className="hover:text-purple-600 transition-colors duration-500">
 						<Link to="/login">
 							Already have an account? Login now!

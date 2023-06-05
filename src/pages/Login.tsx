@@ -9,8 +9,6 @@ function Login() {
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		console.log("Login form submitted");
-
 		const data = {
 			email: email,
 			password: password,
@@ -21,7 +19,6 @@ function Login() {
 				"http://localhost:5000/auth/login",
 				data
 			);
-			console.log(response);
 			console.log(response.data.userToken);
 			alert(response.data.userToken)
 		} catch (error: any) {
