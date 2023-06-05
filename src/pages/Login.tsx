@@ -1,9 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginForm from "../components/auth-components/Login-form";
 import axios from "axios";
 import { useState } from "react";
+import background from "../assets/background.jpeg"
 
 function Login() {
+
+	const navigate = useNavigate();
+
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 
@@ -19,8 +23,8 @@ function Login() {
 				"http://localhost:5000/auth/login",
 				data
 			);
-			console.log(response.data.userToken);
-			alert(response.data.userToken)
+			console.log(response.data.userToken)
+			navigate('/')
 		} catch (error: any) {
 			if (error.response) {
 				console.log(error.response.status);
@@ -30,8 +34,11 @@ function Login() {
 	};
 
 	return (
-		<div className="flex bg-flex flex-col items-center justify-center min-h-screen bg-gray-700">
-			<div className="max-w-md w-full p-6 bg-white rounded-lg shadow">
+		<div
+			className="flex flex-col items-center justify-center min-h-screen bg-cover "
+			style={{
+				backgroundImage: `url(${background})`,
+			}}>			<div className="max-w-md w-full p-6 bg-white rounded-lg shadow">
 				<h2 className="text-2xl font-semibold mb-6">Login</h2>
 				<LoginForm
 					email={email}

@@ -1,9 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import RegisterForm from "../components/auth-components/Register-form";
+import background from "../assets/background.jpeg";
 
 function Register() {
+	const navigate = useNavigate();
+
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 	const [confirmPassword, setConfirmPassword] = useState<string>("");
@@ -25,16 +28,22 @@ function Register() {
 				data
 			);
 			console.log(response.data);
+			alert("User registered successfully!");
+			navigate("/login");
 		} catch (error: any) {
 			if (error.response) {
-				console.log(error.response.status);
+				console.log(error.response.data.message);
 				alert(error.response.data.message);
 			}
 		}
 	}
 
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-700">
+		<div
+			className="flex flex-col items-center justify-center min-h-screen bg-cover bg-gradient-to-t"
+			style={{
+				backgroundImage: `url(${background})`,
+			}}>
 			<div className="max-w-md w-full p-6 bg-white rounded-lg shadow">
 				<h2 className="text-2xl font-semibold mb-6">Register</h2>
 				<RegisterForm

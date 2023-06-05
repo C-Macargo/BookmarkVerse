@@ -14,10 +14,10 @@ interface InputFieldProps {
 const AuthInputField: React.FC<InputFieldProps> = ({ label,type,id,name,placeholder,value,onChange,required,}) => {
 	return (
 		<div className="mb-4">
-			<label className="block mb-2 font-medium" htmlFor={id}>
+			<label className="block  mb-2 font-medium" htmlFor={id}>
 				{label}
 			</label>
-			<input 	className="w-full px-3 py-2 border rounded-md"
+			<input className="w-full px-3 py-2 border rounded-md"
 				type={type}
 				id={id}
 				name={name}
