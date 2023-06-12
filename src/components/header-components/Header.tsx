@@ -9,7 +9,7 @@ function Header() {
 	}
 
 	return (
-		<header className="bg-gray-900 py-4 text-xl fixed top-0 w-full z-10">
+		<header className="bg-gray-900 py-4 text-xl fixed top-0 w-full z-10 opacity-80">
 			<Navbar handleNavigation={handleNavigation} />
 		</header>
 	);
