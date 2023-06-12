@@ -11,7 +11,7 @@ function Login() {
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 
-	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+	async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 		const data = {
 			email: email,
@@ -24,6 +24,7 @@ function Login() {
 				data
 			);
 			console.log(response.data.userToken)
+			alert("User login sucesseful!")
 			navigate('/')
 		} catch (error: any) {
 			if (error.response) {

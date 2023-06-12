@@ -1,23 +1,33 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
 
-interface InputFieldProps {
+interface AuthInputFieldProps {
 	label: string;
 	type: string;
 	id: string;
 	name: string;
 	placeholder: string;
 	value: string;
-	onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 	required?: boolean;
 }
 
-const AuthInputField: React.FC<InputFieldProps> = ({ label,type,id,name,placeholder,value,onChange,required,}) => {
+function AuthInputField({
+	label,
+	type,
+	id,
+	name,
+	placeholder,
+	value,
+	onChange,
+	required,
+}: AuthInputFieldProps) {
 	return (
 		<div className="mb-4">
-			<label className="block  mb-2 font-medium" htmlFor={id}>
+			<label className="block mb-2 font-medium" htmlFor={id}>
 				{label}
 			</label>
-			<input className="w-full px-3 py-2 border rounded-md"
+			<input
+				className="w-full px-3 py-2 border rounded-md"
 				type={type}
 				id={id}
 				name={name}
@@ -28,6 +38,6 @@ const AuthInputField: React.FC<InputFieldProps> = ({ label,type,id,name,placehol
 			/>
 		</div>
 	);
-};
+}
 
 export default AuthInputField;
