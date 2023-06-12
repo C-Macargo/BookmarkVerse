@@ -1,8 +1,14 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useSearch } from "../../contexts/SearchContext";
+import { useNavigate } from "react-router-dom";
 
 function SearchBar() {
 	const [searchQuery, setSearchQuery] = useState("");
+    const searchContext = useSearch();
+    const setResults = searchContext.setResults;
+	const navigate = useNavigate();
+
 
 	async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
@@ -15,6 +21,8 @@ function SearchBar() {
 				data
 			);
 			console.log(response.data);
+            setResults(response.data)
+            navigate(`/search/${searchQuery}`)
 		} catch (error: any) {
 			if (error.response) {
 				console.log(error.response.status);

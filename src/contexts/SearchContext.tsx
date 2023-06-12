@@ -11,7 +11,7 @@ interface SearchProviderProps {
 	children: ReactNode;
 }
 
-export const SearchProvider: React.FC<SearchProviderProps> = ({ children }) => {
+export function SearchProvider({ children }: SearchProviderProps) {
 	const [results, setResults] = useState<any[]>([]);
 
 	return (
@@ -19,12 +19,12 @@ export const SearchProvider: React.FC<SearchProviderProps> = ({ children }) => {
 			{children}
 		</SearchContext.Provider>
 	);
-};
+}
 
-export const useSearch = (): SearchContextType => {
+export function useSearch(): SearchContextType {
 	const context = useContext(SearchContext);
 	if (!context) {
 		throw new Error("useSearch must be used within a SearchProvider");
 	}
 	return context;
-};
+}
