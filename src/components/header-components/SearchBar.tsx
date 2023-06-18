@@ -15,12 +15,12 @@ function SearchBar() {
 		const data = {
 			title: searchQuery,
 		};
+
 		try {
 			const response = await axios.post(
-				"http://localhost:5000/book/find",
+				"http://localhost:5000/book/find/",
 				data
 			);
-			console.log(response.data);
             setResults(response.data)
             navigate(`/search/${searchQuery}`)
 		} catch (error: any) {
