@@ -5,18 +5,28 @@ import Home from "../pages/Home";
 import Header from "../components/header-components/Header";
 import { SearchProvider } from "../contexts/SearchContext";
 import Search from "../pages/Search";
+import BookPage from "../pages/BookPage";
+import Background from "../components/Background";
 
 const AppRoutes = () => {
 	return (
 		<Router>
 			<SearchProvider>
-				<Header />
-				<Routes>
-					<Route path="/login" element={<Login />} />
-					<Route path="/register" element={<Register />} />
-					<Route path="/" element={<Home />} />
-					<Route path="/search/:name" element={<Search />} />
-				</Routes>
+				<Background>
+					<Header />
+					<div className="absolute inset-0 z-0 overflow-auto">
+						<Routes>
+							<Route path="/login" element={<Login />} />
+							<Route path="/register" element={<Register />} />
+							<Route path="/" element={<Home />} />
+							<Route path="/search/:name" element={<Search />} />
+							<Route
+								path="/book/:googleBooksId"
+								element={<BookPage />}
+							/>
+						</Routes>
+					</div>
+				</Background>
 			</SearchProvider>
 		</Router>
 	);

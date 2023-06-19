@@ -2,12 +2,12 @@ import background from "../assets/background.jpeg";
 
 const Home = () => {
 	return (
-		<div className="min-h-screen bg-[#14181c] flex flex-col items-center justify-start">
+		<div className="flex flex-col items-center justify-start">
 			<div className="relative flex items-center justify-center">
 				<div className="w-4/5 sm:w-2/3">
 					<img
 						src={background}
-						className="mx-auto h-auto object-cover rounded-xl opacity-75"
+						className="mx-auto h-auto object-cover rounded-xl opacity-95"
 						alt="Under Construction"
 					/>
 				</div>
