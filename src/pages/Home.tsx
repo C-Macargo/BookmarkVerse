@@ -1,28 +1,19 @@
 import background from "../assets/background.jpeg";
+import { ImageWrapper } from "../components/home-components/image-wrapper";
+import { OverlayText } from "../components/home-components/overlay-text";
+import { PopularBookWrapper } from "../components/home-components/pop-book-wrapper";
 
-const Home = () => {
+function Home() {
 	return (
 		<div className="flex flex-col items-center justify-start">
 			<div className="relative flex items-center justify-center">
-				<div className="w-4/5 sm:w-2/3">
-					<img
-						src={background}
-						className="mx-auto h-auto object-cover rounded-xl opacity-95"
-						alt="Under Construction"
-					/>
-				</div>
-				<div className="absolute inset-x-0 bottom-10 text-white text-center">
-					<h2 className="text-3xl font-bold mb-4">
-						BookmarkVerse: <br />
-						Discover, Bookmark, and Rate Your Favorite Reads!
-					</h2>
-					<button className="px-4 py-2 bg-white text-black rounded-md">
-						Join us now!
-					</button>
-				</div>
+				<ImageWrapper src={background} alt="Under Construction" />
+				<OverlayText />
 			</div>
+			<h1 className=" text-gray-100">POPULAR BOOKS</h1>
+			<PopularBookWrapper/>
 		</div>
 	);
-};
+}
 
 export default Home;

@@ -1,10 +1,9 @@
 import { useParams } from "react-router-dom";
-import FetchSpecificBook from "../hooks/FetchSpecificBook";
+import fetchSpecificBook from "../hooks/FetchSpecificBook";
 
 function BookPage() {
 	const { googleBooksId } = useParams<{ googleBooksId: string }>();
-	const bookData = FetchSpecificBook(googleBooksId);
-
+	const bookData = fetchSpecificBook(googleBooksId).data;
 	return (
 		<div className="flex flex-col h-screen items-center pt-[106px] text-white">
 			<h1 className="text-5xl font-semibold mb-8">Book</h1>

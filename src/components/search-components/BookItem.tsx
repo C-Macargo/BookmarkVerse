@@ -19,20 +19,25 @@ function BookItem({ item }: BookItemProps) {
         <img
           src={item.volumeInfo.imageLinks.thumbnail}
           alt="Thumbnail"
-          className="flex-shrink-0 mr-4 w-40 h-40 object-fit"
+          className="flex-shrink-0 mr-4 h-full w-28"
         />
       ) : (
-        <div className="flex-shrink-0 mr-4 w-40 h-40 bg-gray-300 flex items-center justify-center">
+        <div className="flex-shrink-0 mr-4 h-full w-28 bg-gray-300 flex items-center justify-center">
           <span className="text-gray-500">No Image</span>
         </div>
       )}
       <div className="flex flex-col text-white">
-        <h3 className="truncate font"><span className="font-bold">Title:</span> {item.volumeInfo?.title}</h3>
-        <p className="truncate"><span className="font-bold">Author: </span>{item.volumeInfo?.authors}</p>
+        <h3 className="truncate">
+          <span className="font-bold">Title:</span> {item.volumeInfo?.title}
+        </h3>
+        <p className="truncate ">
+        <span className="font-bold">Author:</span> {item.volumeInfo?.authors}
+          {item.volumeInfo?.authors}
+        </p>
       </div>
     </div>
   );
-}
+}  
 
 
 export default BookItem;
