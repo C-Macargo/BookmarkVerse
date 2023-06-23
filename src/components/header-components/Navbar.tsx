@@ -8,7 +8,7 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ handleNavigation }) => (
-  <nav className="flex items-center justify-around container mx-auto px-6">
+  <nav className="flex items-center justify-evenly  mx-auto px-6">
     <Logo handleNavigation={handleNavigation} />
     <SearchBar/>
     <NavLinks handleNavigation={handleNavigation} />
