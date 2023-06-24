@@ -1,31 +1,50 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from "axios";
+import { useState, useEffect } from "react";
 
-function fetchSpecificBook(googleBooksId : string) {
-    const [data, setData] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
+interface BookData {
+	id?: number;
+	google_books_id?: string;
+	thumbnail?: string;
+	title?: string;
+	subtitle?: string;
+	language?: string;
+	authors?: string;
+	published_date?: string;
+	description?: string;
+}
 
-    useEffect(() => {
-        async function fetchData() {
-            setIsLoading(true);
-            setError(null);
-            try {
-                const response = await axios.get(
-                    `http://localhost:5000/book/find/${googleBooksId}`
-                );
-                setData(response.data);
-            } catch (error: any) {
-                setError(error.message);
-            } finally {
-                setIsLoading(false);
-            }
-        }
+interface UseFetchSpecificBookResult {
+	data: BookData | null;
+	isLoading: boolean;
+	error: any;
+}
 
-        fetchData();
-    }, [googleBooksId]);
+function fetchSpecificBook(googleBooksId: string): UseFetchSpecificBookResult {
+	const [data, setData] = useState<BookData | null>(null);
+	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState<any>(null);
 
-    return { data, isLoading, error };
+	useEffect(() => {
+		async function fetchData() {
+			setIsLoading(true);
+			setError(null);
+			try {
+				const response = await axios.get(
+					`http://localhost:5000/book/find/${googleBooksId}`
+				);
+				setData(response.data);
+				console.log(response.data);
+			} catch (error: any) {
+				setError(error.message);
+			} finally {
+				setIsLoading(false);
+			}
+		}
+
+		fetchData();
+	}, [googleBooksId]);
+
+	return { data, isLoading, error };
 }
 
 export default fetchSpecificBook;

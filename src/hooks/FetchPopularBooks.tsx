@@ -1,10 +1,23 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function fetchPopularBooks() {
-	const [data, setData] = useState(null);
+interface Book {
+	id: number;
+	google_books_id: string;
+	thumbnail?: string;
+	title?: string;
+}
+
+interface FetchPopularBooksResult {
+	data: Book[] | null;
+	isLoading: boolean;
+	error: any;
+}
+
+function fetchPopularBooks(): FetchPopularBooksResult {
+	const [data, setData] = useState<Book[] | null>(null);
 	const [isLoading, setIsLoading] = useState(true);
-	const [error, setError] = useState(null);
+	const [error, setError] = useState<any>(null);
 
 	useEffect(() => {
 		async function fetchData() {
