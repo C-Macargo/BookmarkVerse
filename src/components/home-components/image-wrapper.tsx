@@ -1,4 +1,9 @@
-export function ImageWrapper({ src, alt }) {
+interface ImageWrapperProps {
+	src: string;
+	alt: string;
+}
+
+export function ImageWrapper({ src, alt }: ImageWrapperProps) {
 	return (
 		<div className="relative flex items-center justify-center w-2/3 sm:w-2/3">
 			<img

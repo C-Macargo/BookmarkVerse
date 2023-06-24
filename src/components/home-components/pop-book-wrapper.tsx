@@ -1,9 +1,8 @@
 import fetchPopularBooks from "../../hooks/FetchPopularBooks";
-import BookCard from "./home-book-card";
+import BookCard from "./book-card";
 
 export function PopularBookWrapper() {
     const { data: bookData, isLoading, error } = fetchPopularBooks();
-    console.log(bookData)
     if (isLoading) {
         return <div>Loading...</div>;
     }
@@ -15,9 +14,8 @@ export function PopularBookWrapper() {
     return (
         <div className="flex flex-row flex-wrap">
             {bookData && bookData.map((book, index) => (
-                <BookCard book={book} index={index} />
+                <BookCard key={book.id} book={book} index={index} />
             ))}
         </div>
     );
-    
 }
