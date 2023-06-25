@@ -20,7 +20,7 @@ function BookDetails({ bookData }: { bookData: any }) {
 	const { results } = useUser();
 
 	return (
-		<div className="flex bg-[#3F3A6B] p-6 rounded-xl shadow-lg text-white space-x-6 w-3/4">
+		<div className="flex bg-[#3F3A6B] p-6 rounded-xl shadow-lg text-white space-x-6 w-3/4 mb-12">
 			<div className="flex-shrink-0">
 				<img
 					className="w-36 h-48 object-fit rounded-lg"

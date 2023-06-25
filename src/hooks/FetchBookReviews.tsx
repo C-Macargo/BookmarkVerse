@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRefresh } from "../contexts/RefreshContext"; // Import useRefresh
 
@@ -6,6 +6,10 @@ interface Review {
     id: number;
     rating: number;
     text: string;
+    user:{
+        name:string;
+        picture_url:string
+    }
 }
 
 interface FetchPopularBooksResult {
