@@ -18,7 +18,6 @@ function Register() {
 		const data = {
 			email: email,
 			password: password,
-			confirmPassword: confirmPassword,
 			name: name,
 			picture_url: pictureUrl,
 		};
@@ -32,8 +31,8 @@ function Register() {
 			navigate("/login");
 		} catch (error: any) {
 			if (error.response) {
-				console.log(error.response.data.message);
-				alert(error.response.data.message);
+				console.log(error.response.data);
+				alert(error.response.data.errors);
 			}
 		}
 	}

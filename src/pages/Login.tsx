@@ -3,13 +3,15 @@ import LoginForm from "../components/auth-components/Login-form";
 import axios from "axios";
 import { useState } from "react";
 import background from "../assets/background.jpeg";
+import { useUser } from "../contexts/UserContext";
 
 function Login() {
 	const navigate = useNavigate();
 
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
-
+	const userContext = useUser();
+	const setResults = userContext.setResults;
 	async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 		const data = {
@@ -22,7 +24,8 @@ function Login() {
 				"http://localhost:5000/auth/login",
 				data
 			);
-			console.log(response.data.userToken);
+			console.log(response.data);
+			setResults(response.data)
 			alert("User login sucesseful!");
 			navigate("/");
 		} catch (error: any) {
