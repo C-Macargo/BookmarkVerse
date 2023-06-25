@@ -7,10 +7,12 @@ import { SearchProvider } from "../contexts/SearchContext";
 import Search from "../pages/Search";
 import BookPage from "../pages/BookPage";
 import Background from "../components/Background";
+import { UserProvider } from "../contexts/UserContext";
 
 const AppRoutes = () => {
 	return (
 		<Router>
+			<UserProvider>
 			<SearchProvider>
 				<Background>
 					<Header />
@@ -28,6 +30,7 @@ const AppRoutes = () => {
 					</div>
 				</Background>
 			</SearchProvider>
+			</UserProvider>
 		</Router>
 	);
 };
