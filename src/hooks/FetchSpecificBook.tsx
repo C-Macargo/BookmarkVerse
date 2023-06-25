@@ -25,7 +25,7 @@ function fetchSpecificBook(googleBooksId: string): UseFetchSpecificBookResult {
 	const [error, setError] = useState<any>(null);
 
 	useEffect(() => {
-		async function fetchData() {
+		const fetchData = async () => {
 			setIsLoading(true);
 			setError(null);
 			try {
@@ -33,13 +33,12 @@ function fetchSpecificBook(googleBooksId: string): UseFetchSpecificBookResult {
 					`http://localhost:5000/book/find/${googleBooksId}`
 				);
 				setData(response.data);
-				console.log(response.data);
 			} catch (error: any) {
 				setError(error.message);
 			} finally {
 				setIsLoading(false);
 			}
-		}
+		};
 
 		fetchData();
 	}, [googleBooksId]);

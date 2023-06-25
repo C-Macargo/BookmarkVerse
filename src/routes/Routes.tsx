@@ -8,12 +8,14 @@ import Search from "../pages/Search";
 import BookPage from "../pages/BookPage";
 import Background from "../components/Background";
 import { UserProvider } from "../contexts/UserContext";
+import { RefreshProvider } from "../contexts/RefreshContext";
 
 const AppRoutes = () => {
 	return (
 		<Router>
 			<UserProvider>
 			<SearchProvider>
+			<RefreshProvider>
 				<Background>
 					<Header />
 					<div className="absolute inset-0 z-0 overflow-auto">
@@ -29,6 +31,7 @@ const AppRoutes = () => {
 						</Routes>
 					</div>
 				</Background>
+			</RefreshProvider>
 			</SearchProvider>
 			</UserProvider>
 		</Router>
