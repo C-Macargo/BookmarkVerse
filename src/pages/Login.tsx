@@ -5,13 +5,15 @@ import { useState } from "react";
 import background from "../assets/background.jpeg";
 import { useUser } from "../contexts/UserContext";
 
+type SetResultsFunction = (results: any) => void;
+
 function Login() {
 	const navigate = useNavigate();
 
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 	const userContext = useUser();
-	const setResults = userContext.setResults;
+	const setResults: SetResultsFunction = userContext.setResults;
 	async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 		const data = {
@@ -25,7 +27,7 @@ function Login() {
 				data
 			);
 			console.log(response.data);
-			setResults(response.data)
+			setResults(response.data);
 			alert("User login sucesseful!");
 			navigate("/");
 		} catch (error: any) {

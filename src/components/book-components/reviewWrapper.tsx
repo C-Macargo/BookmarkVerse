@@ -2,7 +2,6 @@ import fetchBookReviews from "../../hooks/FetchBookReviews";
 
 function ReviewWrapper({ bookId }: { bookId: number }) {
 	const { data: reviews, isLoading, error } = fetchBookReviews(bookId);
-	console.log(reviews);
 
 	if (isLoading) {
 		return <div>Loading reviews...</div>;
@@ -16,7 +15,7 @@ function ReviewWrapper({ bookId }: { bookId: number }) {
             {reviews &&
                 reviews.map((review, index) => (
                     <div
-                        className="max-w-2xl px-8 py-4 mb-4 bg-gray-100 rounded-lg shadow-md"
+                        className="max-w-2xl min-w-[672px] px-8 py-4 mb-4 bg-gray-100 rounded-lg shadow-md"
                         key={index}
                     >
                         <div className="flex items-center justify-between">
