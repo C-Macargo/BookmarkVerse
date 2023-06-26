@@ -1,8 +1,8 @@
 import fetchBookReviews from "../../hooks/FetchBookReviews";
 
-function ReviewWrapper({ bookId }: { bookId: number }) {
-	const { data: reviews, isLoading, error } = fetchBookReviews(bookId);
-
+function ReviewWrapper(bookId:any) {
+    const { bookId: id } = bookId;
+	const { data: reviews, isLoading, error } = fetchBookReviews(id);
 	if (isLoading) {
 		return <div>Loading reviews...</div>;
 	}

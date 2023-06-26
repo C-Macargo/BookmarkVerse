@@ -19,7 +19,7 @@ interface UseFetchSpecificBookResult {
 	error: any;
 }
 
-function fetchSpecificBook(googleBooksId: string): UseFetchSpecificBookResult {
+function fetchSpecificBook(googleBooksId: any): UseFetchSpecificBookResult {
 	const [data, setData] = useState<BookData | null>(null);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState<any>(null);

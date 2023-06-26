@@ -4,8 +4,8 @@ import axios from "axios";
 import { useUser } from "../../contexts/UserContext";
 
 function BookmarkButton({ bookId }: { bookId: number }) {
-	const { bookmarks } = useFetchBookmarks();
-	const bookmarkArray = bookmarks.bookmarkIds;
+    const { bookmarks }: { bookmarks: any } = useFetchBookmarks();
+    const bookmarkArray: any = bookmarks.bookmarkIds;
 	const [isBookmarked, setIsBookmarked] = useState(false);
 	const { results } = useUser();
 

@@ -4,10 +4,11 @@ import BookmarkButton from "../components/book-components/bookmarkButton";
 import ReviewButton from "../components/book-components/reviewButton";
 import ReviewWrapper from "../components/book-components/reviewWrapper";
 import { useUser } from "../contexts/UserContext";
-import useFetchBookmarks from "../hooks/FetchUserBookmarks";
+
+
 
 function BookPage() {
-	const { googleBooksId = "" } = useParams<{ googleBooksId?: string }>();
+	const { googleBooksId } = useParams();
 	const bookData = fetchSpecificBook(googleBooksId).data;
 
 	return (
@@ -17,9 +18,14 @@ function BookPage() {
 		</div>
 	);
 }
+
 function BookDetails({ bookData }: { bookData: any }) {
 	const { results } = useUser();
-	const bookmarks = useFetchBookmarks()
+
+	if (!bookData) {
+		return null; 
+	}
+
 	return (
 		<div className="flex bg-[#3F3A6B] p-6 rounded-xl shadow-lg text-white space-x-6 w-3/4 mb-12">
 			<div className="flex-shrink-0">
@@ -44,7 +50,7 @@ function BookDetails({ bookData }: { bookData: any }) {
 					Published in: {bookData.published_date}
 				</p>
 				<p className="text-sm">{bookData.description}</p>
-				{results.length!==0 ? (
+				{results.length !== 0 ? (
 					<div className="flex space-x-4">
 						<BookmarkButton bookId={bookData.id} />
 						<ReviewButton bookId={bookData.id} />

@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext, ReactNode } from "react";
 
 interface UserContextType {
-	results: any[];
+	results: any;
 	setResults: React.Dispatch<React.SetStateAction<any[]>>;
 }
 

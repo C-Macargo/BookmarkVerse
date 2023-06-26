@@ -10,7 +10,7 @@ interface CreateBookReviewParams {
 
 function useCreateBookReview() {
     const { results } = useUser();
-    const { setRefreshToken } = useRefresh(); // Use setRefreshToken from the context
+    const { setRefreshToken } = useRefresh(); 
 
     const createBookReview = async ({
         bookId: { bookId: actualBookId },

@@ -3,9 +3,9 @@ import axios from "axios";
 import { useUser } from "../contexts/UserContext";
 
 function useFetchBookmarks() {
-	const [bookmarks, setBookmarks] = useState([]);
+	const [bookmarks, setBookmarks] = useState<any[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
-	const [error, setError] = useState(null);
+	const [error, setError] = useState<any>(null);
 	const { results } = useUser();
 
 	useEffect(() => {
@@ -29,7 +29,7 @@ function useFetchBookmarks() {
 		};
 
 		fetchBookmarks();
-	}, []);
+	}, [results]);
 
 	return { bookmarks, isLoading, error };
 }
