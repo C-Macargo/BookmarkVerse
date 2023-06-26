@@ -14,10 +14,9 @@ function SearchBar() {
 		const data = {
 			title: searchQuery,
 		};
-
 		try {
 			const response = await axios.post(
-				"http://localhost:5000/book/find/",
+				`${import.meta.env.VITE_REACT_APP_API_BASE_URL}/book/find/`,
 				data
 			);
 			setResults(response.data);

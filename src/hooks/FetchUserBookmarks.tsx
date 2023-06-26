@@ -13,7 +13,7 @@ function useFetchBookmarks() {
 			setIsLoading(true);
 			try {
 				const response = await axios.get(
-					"http://localhost:5000/bookmark/find",
+					`${import.meta.env.VITE_REACT_APP_API_BASE_URL}/bookmark/find`,
 					{
 						headers: {
 							Authorization: `Bearer ${results.token}`,

@@ -6,6 +6,7 @@ interface Book {
 	google_books_id: string;
 	thumbnail?: string;
 	title?: string;
+	bookmark_count:number
 }
 
 interface FetchPopularBooksResult {
@@ -25,8 +26,9 @@ function fetchPopularBooks(): FetchPopularBooksResult {
 			setError(null);
 			try {
 				const response = await axios.get(
-					`http://localhost:5000/book/find/popular`
-				);
+					`${import.meta.env.VITE_REACT_APP_API_BASE_URL}/book/find/popular`
+					);
+					console.log(response)
 				setData(response.data);
 			} catch (error: any) {
 				setError(error.message);

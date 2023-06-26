@@ -23,7 +23,7 @@ function Register() {
 		};
 		try {
 			const response = await axios.post(
-				"http://localhost:5000/auth/register",
+				`${import.meta.env.VITE_REACT_APP_API_BASE_URL}/auth/register`,
 				data
 			);
 			console.log(response.data);

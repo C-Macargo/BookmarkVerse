@@ -23,7 +23,7 @@ function Login() {
 
 		try {
 			const response = await axios.post(
-				"http://localhost:5000/auth/login",
+				`${import.meta.env.VITE_REACT_APP_API_BASE_URL}/auth/login`,
 				data
 			);
 			console.log(response.data);

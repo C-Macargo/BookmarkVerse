@@ -1,18 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-interface Book {
-	id: number;
-	google_books_id?: string;
-	thumbnail: string;
-	title: string;
-	bookmark_count: number;
-}
-
-interface BookCardProps {
-	book: Book;
-}
-
-function BookCard({ book }: BookCardProps) {
+function BookCard({ book }: { book: any }) {
 	const navigate = useNavigate();
 
 	function handleClick() {

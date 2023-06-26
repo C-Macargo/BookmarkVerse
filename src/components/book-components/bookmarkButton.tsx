@@ -26,7 +26,9 @@ function BookmarkButton({ bookId }: { bookId: number }) {
 			};
 
 			if (isBookmarked) {
-				await axios.delete("http://localhost:5000/bookmark/delete", {
+
+				await axios.delete(`${import.meta.env.VITE_REACT_APP_API_BASE_URL}/bookmark/delete`,
+				{
 					data: { bookId },
 					...config,
 				});
@@ -34,7 +36,7 @@ function BookmarkButton({ bookId }: { bookId: number }) {
 				console.log("Bookmark removed successfully");
 			} else {
 				await axios.post(
-					"http://localhost:5000/bookmark/create",
+					`${import.meta.env.VITE_REACT_APP_API_BASE_URL}/bookmark/create`,
 					{ bookId },
 					config
 				);

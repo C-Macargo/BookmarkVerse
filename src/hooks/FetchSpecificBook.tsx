@@ -30,7 +30,7 @@ function fetchSpecificBook(googleBooksId: any): UseFetchSpecificBookResult {
 			setError(null);
 			try {
 				const response = await axios.get(
-					`http://localhost:5000/book/find/${googleBooksId}`
+					`${import.meta.env.VITE_REACT_APP_API_BASE_URL}/book/find/${googleBooksId}`
 				);
 				setData(response.data);
 			} catch (error: any) {

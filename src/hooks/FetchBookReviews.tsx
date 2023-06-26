@@ -37,7 +37,7 @@ function fetchBookReviews(bookId: number): FetchPopularBooksResult {
             setError(null);
             try {
                 const response = await axios.get(
-                    `http://localhost:5000/review/find/${bookId}`
+                    `${import.meta.env.VITE_REACT_APP_API_BASE_URL}/review/find/${bookId}`,
                 );
                 const { totalReviews, currentPage, reviewsPerPage, reviews } =
                     response.data;

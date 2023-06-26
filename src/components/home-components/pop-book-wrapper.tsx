@@ -13,8 +13,8 @@ export function PopularBookWrapper() {
 
     return (
         <div className="flex flex-row flex-wrap">
-            {bookData && bookData.map((book, index) => (
-                <BookCard key={book.id} book={book} index={index} />
+            {bookData && bookData.map((book) => (
+                <BookCard key={book.id} book={book}/>
             ))}
         </div>
     );

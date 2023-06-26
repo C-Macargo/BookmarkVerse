@@ -21,8 +21,8 @@ export interface BookItemProps {
 
 function Search() {
 	const { name } = useParams();
-	const { results } = useSearch();
-	const items = results.items as BookItemProps["item"][];
+	const { results } = useSearch() as any;
+	const items = results.items as any[];
 
 	return (
 		

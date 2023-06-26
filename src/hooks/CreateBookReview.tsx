@@ -21,7 +21,7 @@ function useCreateBookReview() {
             const parsedReviewRating = parseInt(reviewRating, 10);
             console.log(actualBookId);
             const response = await axios.post(
-                "http://localhost:5000/review/create",
+                `${import.meta.env.VITE_REACT_APP_API_BASE_URL}/review/create`,
                 {
                     bookId: actualBookId,
                     reviewRating: parsedReviewRating,
